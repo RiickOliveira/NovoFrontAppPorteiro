@@ -1,0 +1,49 @@
+<div layout="column">
+    <md-button class="md-fab md-accent" aria-label="Comment" ng-click="vm.novaVisita()">
+        <md-icon md-svg-src="/assets/img/plus.svg"></md-icon>
+    </md-button>
+
+    <md-card class="row-card md-whiteframe-20dp" ng-repeat="visitas in vm.dataset">
+        <div layout="row">
+            
+            <img ng-src="/assets/img/network.svg" class="md-avatar" alt="Condomino" style="width: 64px; height: 64px;" />
+  
+            <div layout="column" flex>
+                <div layout="row">
+                  <span flex></span>                 
+                  
+                  <md-button ng-click="vm.exclui($event,visitas)"> Cancelar visita</md-button>
+                       
+                  <md-menu>
+                      <md-button class="md-icon-button">
+                          <img src="/assets/img//mote_vert.png" >                      
+                      </md-button>
+                      <md-menu-content width="3">
+                        <md-menu-item>
+                            <md-button ng-click="vm.editaVisita($event,visitas)"> Editar </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                             </md-menu-item>
+                      </md-menu-content>
+                  </md-menu>
+  
+                </div>
+  
+                <div layout="column" layout-align="start start">                     
+                    <span class="font-size-18 texto-cinza-medio negrito">Convidado: {{visitas.nomeConvidado}}</span>
+                    <span class="font-size-16 texto-cinza-claro negrito">Digital convidado: {{visitas.pessoa.digital}}</span>
+                    <span class="font-size-16 texto-cinza-claro negrito">Reservado: {{visitas.dataHoraReserva | date:'dd/MM/yyyy HH:mm'}}</span>
+                    <span class="font-size-16 texto-cinza-claro negrito">Situação: {{visitas.situacao}}</span>
+                    <span class="font-size-16 texto-cinza-claro negrito">Expira em: {{visitas.dataHoraExpiracao | date:'dd/MM/yyyy HH:mm'}}</span>
+                    
+                   
+  
+                    <!--<span class="font-size-18 texto-cinza-medio negrito">{{condominos.pessoa.digital}}</span>
+                    <span class="font-size-16 texto-cinza-claro">{{condominos.endereco}}</span>-->
+                </div>
+            </div>
+        </div>
+          
+    </md-card>
+</div>
+
